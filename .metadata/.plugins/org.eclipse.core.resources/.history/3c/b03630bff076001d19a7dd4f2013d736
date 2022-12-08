@@ -1,0 +1,7 @@
+package com.ersin.retrofitDemo.dataAccess.concretes;
+
+import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
+
+public class InMemoryProductRepository implements ProductRepository{
+
+}

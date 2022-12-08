@@ -1,0 +1,6 @@
+package com.ersin.retrofitDemo.dataAccess.abstracts;
+
+
+public interface productRepository {
+	List<Produ>
+}

@@ -1,0 +1,26 @@
+package com.ersin.retrofitDemo.dataAccess.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
+import com.ersin.retrofitDemo.entities.concretes.Product;
+
+public class InMemoryProductRepository implements ProductRepository{
+
+	List<Product>products;
+	
+	
+	public InMemoryProductRepository() {
+		products=new ArrayList<Product>();
+		products.add(new Product("Açıklama",1,131323,234234,24523,42352,3525,));
+	}
+
+
+	@Override
+	public List<Product> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

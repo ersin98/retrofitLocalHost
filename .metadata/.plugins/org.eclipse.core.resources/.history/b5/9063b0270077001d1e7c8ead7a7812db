@@ -1,0 +1,10 @@
+package com.ersin.retrofitDemo.business.concretes;
+
+import java.util.List;
+
+import com.ersin.retrofitDemo.business.abstracts.ProductService;
+import com.ersin.retrofitDemo.entities.concretes.Product;
+
+public class ProductManager implements ProductService{
+	List<Product> getAll();
+}

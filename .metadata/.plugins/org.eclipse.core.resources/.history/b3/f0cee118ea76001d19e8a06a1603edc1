@@ -1,0 +1,5 @@
+package com.ersin.retrofitDemo.entities;
+
+public class product {
+
+}

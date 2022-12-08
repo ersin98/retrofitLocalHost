@@ -1,0 +1,16 @@
+package com.ersin.retrofitDemo.dataAccess.concretes;
+
+import java.util.List;
+
+import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
+import com.ersin.retrofitDemo.entities.concretes.Product;
+
+public class InMemoryProductRepository implements ProductRepository{
+
+	@Override
+	public List<Product> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
