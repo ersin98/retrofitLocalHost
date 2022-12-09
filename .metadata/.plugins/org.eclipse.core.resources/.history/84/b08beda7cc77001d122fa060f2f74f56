@@ -1,0 +1,8 @@
+package com.ersin.retrofitDemo.business.requests;
+
+public class CreateProductRequests {
+	private String description;
+	private String imageData;
+	private Double price;
+	private String title;
+}

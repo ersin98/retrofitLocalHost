@@ -1,62 +1,33 @@
 package com.ersin.retrofitDemo.entities.concretes;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Table(name = "products")
+@Data // @Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Product {
+	@Column(name = "description")
 	private String description;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
+	@Column(name = "imageData")
 	private String imageData;
+	@Column(name = "price")
 	private Double price;
+	@Column(name = "title")
 	private String title;
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getImageData() {
-		return imageData;
-	}
-
-	public void setImageData(String imageData) {
-		this.imageData = imageData;
-	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Product(String description, int id, String imageData, Double price, String title) {
-		super();
-		this.description = description;
-		this.id = id;
-		this.imageData = imageData;
-		this.price = price;
-		this.title = title;
-	}
-
-	public Product() {
-		super();
-	}
 }

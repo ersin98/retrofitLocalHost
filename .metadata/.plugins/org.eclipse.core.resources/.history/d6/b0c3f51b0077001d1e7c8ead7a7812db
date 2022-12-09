@@ -1,7 +1,0 @@
-package com.ersin.retrofitDemo.business.concretes;
-
-import com.ersin.retrofitDemo.business.abstracts.ProductService;
-
-public class ProductManager implements ProductService{
-
-}

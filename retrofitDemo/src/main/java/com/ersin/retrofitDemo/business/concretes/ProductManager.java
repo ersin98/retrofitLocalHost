@@ -1,11 +1,14 @@
 package com.ersin.retrofitDemo.business.concretes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
+import com.ersin.retrofitDemo.business.requests.CreateProductRequests;
+import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
 import com.ersin.retrofitDemo.entities.concretes.Product;
 
@@ -20,8 +23,33 @@ public class ProductManager implements ProductService {
 	}
 
 	@Override
-	public List<Product> getAll() {
-		return productRepository.getAll();
+	public List<GetAllProductResponse> getAll() {
+
+		List<Product> products = productRepository.findAll();
+		List<GetAllProductResponse> getAllProductResponses = new ArrayList<GetAllProductResponse>();
+
+		for (Product product : products) {
+			GetAllProductResponse responseItem = new GetAllProductResponse();
+
+			responseItem.setId(product.getId());
+			responseItem.setDescription(product.getDescription());
+			responseItem.setImageData(product.getImageData());
+			responseItem.setPrice(product.getPrice());
+			responseItem.setTitle(product.getTitle());
+			getAllProductResponses.add(responseItem);
+		}
+		return getAllProductResponses;
+	}
+
+	@Override
+	public void add(CreateProductRequests createProductRequests) {
+		Product product = new Product();
+		product.setDescription(createProductRequests.getDescription());
+		product.setImageData(createProductRequests.getImageData());
+		product.setPrice(createProductRequests.getPrice());
+		product.setTitle(createProductRequests.getTitle());
+		this.productRepository.save(product);
+
 	}
 
 }
