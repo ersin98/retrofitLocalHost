@@ -22,7 +22,6 @@ public class InMemoryProductRepository implements ProductRepository {
 
 	@Override
 	public List<Product> getAll() {
-		// TODO Auto-generated method stub
 		return products;
 	}
 
