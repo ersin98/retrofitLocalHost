@@ -42,7 +42,7 @@ public class ProductManager implements ProductService {
 	}
 
 	@Override
-	public void addProduct(CreateProductRequests createProductRequests) {
+	public void add(CreateProductRequests createProductRequests) {
 		Product product = new Product();
 		product.setDescription(createProductRequests.getDescription());
 		product.setImageData(createProductRequests.getImageData());

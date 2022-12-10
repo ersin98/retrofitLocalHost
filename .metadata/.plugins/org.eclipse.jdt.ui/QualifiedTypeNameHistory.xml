@@ -25,6 +25,6 @@
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.responses.GetAllProductResponse"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.entities.concretes.Product"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.requests.CreateProductRequests"/>
     <fullyQualifiedTypeName name="io.swagger.v3.oas.annotations.parameters.RequestBody"/>
+    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.requests.CreateProductRequests"/>
 </qualifiedTypeNameHistroy>

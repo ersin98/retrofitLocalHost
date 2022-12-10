@@ -8,5 +8,5 @@ import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 public interface ProductService {
 	List<GetAllProductResponse> getAll();
 
-	void addProduct(CreateProductRequests createProductRequests);
+	void add(CreateProductRequests createProductRequests);
 }
