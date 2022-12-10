@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
-import com.ersin.retrofitDemo.business.requests.CreateProductRequests;
-import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
+import com.ersin.retrofitDemo.business.requests.productRequests.CreateProductRequest;
+import com.ersin.retrofitDemo.business.responses.productResponses.GetAllProductResponse;
 
 @RestController
 @RequestMapping("/api/products")
@@ -29,7 +29,8 @@ public class ProductsController {
 	}
 
 	@PostMapping("/add")
-	public void addProduct(CreateProductRequests createProductRequests) {
+	public void addProduct(CreateProductRequest createProductRequests) {
+
 		productService.addProduct(createProductRequests);
 	}
 }

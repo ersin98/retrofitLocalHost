@@ -1,0 +1,7 @@
+package com.ersin.retrofitDemo.business.abstracts;
+
+import org.springframework.web.multipart.MultipartFile;
+
+public interface ImageService {
+	String  addImageRequest(MultipartFile file);
+}

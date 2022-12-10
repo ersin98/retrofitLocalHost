@@ -23,8 +23,8 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "imageData")
-	private String imageData;
+	@Column(name = "imageId")
+	private int imageId;
 	@Column(name = "price")
 	private Double price;
 	@Column(name = "title")

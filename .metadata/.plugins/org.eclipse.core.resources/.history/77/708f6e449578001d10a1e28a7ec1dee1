@@ -1,0 +1,5 @@
+package com.ersin.retrofitDemo.business.requests.imageRequests;
+
+public class CreateImageRequest {
+
+}

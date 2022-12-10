@@ -1,0 +1,5 @@
+package com.ersin.retrofitDemo.dataAccess.abstracts;
+
+public interface ImageRepository {
+
+}
