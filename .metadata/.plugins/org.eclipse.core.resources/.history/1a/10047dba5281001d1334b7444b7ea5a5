@@ -1,0 +1,5 @@
+package com.ersin.retrofitDemo.business.responses;
+
+public class GetByQueryProductResponse {
+	private name;
+}
