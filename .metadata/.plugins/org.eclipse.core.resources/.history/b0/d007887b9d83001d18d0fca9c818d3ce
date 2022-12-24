@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
@@ -59,7 +58,7 @@ public class ProductManager implements ProductService {
 		if (title.isBlank() || title.isEmpty()) {
 			products = productRepository.findAll();
 		} else {
-			Optional<List<Product>> getProduct = productRepository.findByTitleContaining(title);
+			Optional<List<Product>> getProduct = productRepository.findByTitle("%" + title + "%");
 			products = getProduct.get();
 		}
 		List<GetByQueryProductResponse> byQueryProductResponses = new ArrayList<GetByQueryProductResponse>();

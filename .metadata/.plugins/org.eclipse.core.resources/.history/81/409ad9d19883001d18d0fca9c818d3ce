@@ -55,14 +55,17 @@ public class ProductManager implements ProductService {
 
 	@Override
 	public List<GetByQueryProductResponse> getByTitle(String title) {
-		List<Product> products = null;
-		if (title.isBlank() || title.isEmpty()) {
-			products = productRepository.findAll();
-		} else {
-			Optional<List<Product>> getProduct = productRepository.findByTitleContaining(title);
-			products = getProduct.get();
+
+		if(title==null) {
+			Optional<List<Product>> getProduct = productRepository.findAll();
 		}
+		
+		
+		Optional<List<Product>> getProduct = productRepository.findByTitle(title);
+		List<Product> products = getProduct.get();
 		List<GetByQueryProductResponse> byQueryProductResponses = new ArrayList<GetByQueryProductResponse>();
+		
+		
 		for (Product product : products) {
 			GetByQueryProductResponse byQueryProductResponse = new GetByQueryProductResponse();
 			byQueryProductResponse.setDescription(product.getDescription());
