@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Product {
-	@Column(name = "description")
+	@Column(name = "description", columnDefinition = "text")
 	private String description;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,0 @@
-package com.ersin.retrofitDemo.dataAccess.concretes;
-
-public class InMemoryProductRepository {
-
-}
