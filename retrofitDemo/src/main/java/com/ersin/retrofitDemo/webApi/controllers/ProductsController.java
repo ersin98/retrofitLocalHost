@@ -35,7 +35,13 @@ public class ProductsController {
 	}
 
 	@PostMapping("/add")
-	public void addProduct(CreateProductRequest createProductRequests) {
-		productService.addProduct(createProductRequests);
+	public boolean addProduct(CreateProductRequest createProductRequests) {
+		try {
+			productService.addProduct(createProductRequests);
+		} catch (Exception e) {
+			return true;
+		}
+
+		return false;
 	}
 }
