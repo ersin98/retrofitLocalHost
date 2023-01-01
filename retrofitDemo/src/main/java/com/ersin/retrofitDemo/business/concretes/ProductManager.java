@@ -51,6 +51,7 @@ public class ProductManager implements ProductService {
 		product.setPrice(createProductRequests.getPrice());
 		product.setTitle(createProductRequests.getTitle());
 		this.productRepository.save(product);
+
 	}
 
 	@Override
