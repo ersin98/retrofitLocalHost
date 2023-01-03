@@ -12,4 +12,5 @@ public class GetByQueryProductResponse {
 	private String imageData;
 	private Double price;
 	private String title;
+	int id;
 }

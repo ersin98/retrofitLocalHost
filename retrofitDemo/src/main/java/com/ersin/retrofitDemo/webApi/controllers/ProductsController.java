@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
+import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
 
@@ -38,5 +39,15 @@ public class ProductsController {
 	@PostMapping("/add")
 	public void addProduct(@RequestBody CreateProductRequest createProductRequest) {
 		productService.addProduct(createProductRequest);
+	}
+
+	@PostMapping("/delete")
+	public void deleteProduct(int id) {
+		productService.deleteProduct(id);
+	}
+
+	@PostMapping("/update")
+	public void updateProduct(@RequestBody UpdateProductRequest updateProductRequest) {
+		productService.updateProductRequest(updateProductRequest);
 	}
 }

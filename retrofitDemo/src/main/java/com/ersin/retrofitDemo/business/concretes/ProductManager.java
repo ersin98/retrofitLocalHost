@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
+import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
 import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
@@ -44,12 +45,12 @@ public class ProductManager implements ProductService {
 	}
 
 	@Override
-	public void addProduct(CreateProductRequest createProductRequests) {
+	public void addProduct(CreateProductRequest createProductRequest) {
 		Product product = new Product();
-		product.setDescription(createProductRequests.getDescription());
-		product.setImageData(createProductRequests.getImageData());
-		product.setPrice(createProductRequests.getPrice());
-		product.setTitle(createProductRequests.getTitle());
+		product.setDescription(createProductRequest.getDescription());
+		product.setImageData(createProductRequest.getImageData());
+		product.setPrice(createProductRequest.getPrice());
+		product.setTitle(createProductRequest.getTitle());
 		this.productRepository.save(product);
 
 	}
@@ -70,9 +71,32 @@ public class ProductManager implements ProductService {
 			byQueryProductResponse.setImageData(product.getImageData());
 			byQueryProductResponse.setPrice(product.getPrice());
 			byQueryProductResponse.setTitle(product.getTitle());
+			byQueryProductResponse.setId(product.getId());
 			byQueryProductResponses.add(byQueryProductResponse);
 		}
 		return byQueryProductResponses;
+	}
+
+	@Override
+	public void deleteProduct(int id) {
+		Optional<Product> product = productRepository.findById(id);
+		productRepository.delete(product.get());
+	}
+
+	@Override
+	public void updateProductRequest(UpdateProductRequest updateProductRequest) {
+		List<Product> products = productRepository.findAll();
+		Optional<Product> item = productRepository.findById(updateProductRequest.getId());
+		Product productFromRepository = item.get();
+		for (Product product : products) {
+			if (updateProductRequest.getId() == productFromRepository.getId()) {
+				productFromRepository.setDescription(updateProductRequest.getDescription());
+				productFromRepository.setImageData(updateProductRequest.getImageData());
+				productFromRepository.setPrice(updateProductRequest.getPrice());
+				productFromRepository.setTitle(updateProductRequest.getTitle());
+				productRepository.save(productFromRepository);
+			}
+		}
 	}
 
 }
