@@ -10,5 +10,12 @@ import com.ersin.retrofitDemo.entities.concretes.Product;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 	Optional<List<Product>> findByTitleContaining(String Query);
+	// Optional<List<Product>> findByTitleLike(String Query);
+	// Optional<List<Product>> findByTitleStartingWith(String Query);
 
+	Optional<Product> findByImageData(String Query);
+
+	Optional<List<Product>> findByPrice(Double Query);
+
+	Optional<Product> findByDescription(String Query);
 }

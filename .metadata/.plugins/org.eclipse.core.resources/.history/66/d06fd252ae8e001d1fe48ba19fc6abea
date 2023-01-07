@@ -1,0 +1,8 @@
+package com.ersin.retrofitDemo.business.common;
+
+public class ControlOperations {
+	public Boolean repeatErrorCheck(String item) {
+
+		return true;
+	}
+}

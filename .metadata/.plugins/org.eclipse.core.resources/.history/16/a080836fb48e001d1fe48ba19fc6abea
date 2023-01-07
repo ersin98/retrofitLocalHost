@@ -1,0 +1,17 @@
+package com.ersin.retrofitDemo.business.requests;
+
+import com.ersin.retrofitDemo.entities.concretes.Product;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class CreateProductRequest extends Product {
+	private String description;
+	private String imageData;
+	private Double price;
+	private String title;
+}

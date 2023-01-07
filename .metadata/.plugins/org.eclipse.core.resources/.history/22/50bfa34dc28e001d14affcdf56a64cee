@@ -1,0 +1,21 @@
+package com.ersin.retrofitDemo.business.common;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
+import com.ersin.retrofitDemo.entities.concretes.Product;
+
+public class ControlOperations {
+	private ProductRepository productRepository;
+
+	@Autowired
+	public ControlOperations(ProductRepository productRepository) {
+		super();
+		this.productRepository = productRepository;
+	}
+
+	public String repeatErrorCheck(Product product) {
+
+		return "dafdw";
+	}
+}

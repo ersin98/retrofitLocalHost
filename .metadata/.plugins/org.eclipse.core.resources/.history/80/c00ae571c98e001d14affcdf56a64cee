@@ -1,0 +1,14 @@
+package com.ersin.retrofitDemo.business.concretes;
+
+import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Settings {
+	private Boolean imageDataCanRepeat;
+}
