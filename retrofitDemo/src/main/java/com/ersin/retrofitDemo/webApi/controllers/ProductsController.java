@@ -47,6 +47,11 @@ public class ProductsController {
 		productService.deleteProduct(id);
 	}
 
+	@PostMapping("/deleteall")
+	public void deleteProduct() {
+		productService.deleteAll();
+	}
+
 	@PostMapping("/update")
 	public void updateProduct(@RequestBody UpdateProductRequest updateProductRequest) {
 		productService.updateProductRequest(updateProductRequest);

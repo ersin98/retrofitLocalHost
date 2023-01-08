@@ -13,9 +13,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	// Optional<List<Product>> findByTitleLike(String Query);
 	// Optional<List<Product>> findByTitleStartingWith(String Query);
 
-	Optional<Product> findByImageData(String Query);
+	Optional<Product> findByImage(String string);
 
-	Optional<List<Product>> findByPrice(Double Query);
+	Optional<Product> findByDescription(String description);
 
-	Optional<Product> findByDescription(String Query);
+	Optional<Product> findByTitle(String title);
 }

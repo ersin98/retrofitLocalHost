@@ -1,6 +1,0 @@
-package com.ersin.retrofitDemo.business.concretes;
-
-public class Settings {
-private Boolean imageDataCanRepeat;
-
-}

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
+import com.ersin.retrofitDemo.business.common.ControlOperations;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
 import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
 import com.ersin.retrofitDemo.business.requests.controllers.CreateProducRequestController;
@@ -20,11 +21,13 @@ import com.ersin.retrofitDemo.entities.concretes.Product;
 @Service
 public class ProductManager implements ProductService {
 	private ProductRepository productRepository;
+	private ControlOperations controlOperations;
 
 	@Autowired
-	public ProductManager(ProductRepository productRepository) {
+	public ProductManager(ProductRepository productRepository, ControlOperations controlOperations) {
 		super();
 		this.productRepository = productRepository;
+		this.controlOperations = controlOperations;
 	}
 
 	@Override
@@ -38,7 +41,7 @@ public class ProductManager implements ProductService {
 
 			responseItem.setId(product.getId());
 			responseItem.setDescription(product.getDescription());
-			responseItem.setImageData(product.getImageData());
+			responseItem.setImage(product.getImage());
 			responseItem.setPrice(product.getPrice());
 			responseItem.setTitle(product.getTitle());
 			getAllProductResponses.add(responseItem);
@@ -48,26 +51,28 @@ public class ProductManager implements ProductService {
 
 	@Override
 	public CreateProducRequestController addProduct(CreateProductRequest createProductRequest) {
-
+		CreateProducRequestController createProducRequestController = new CreateProducRequestController();
+		createProducRequestController.setDone(false);
 		Product product = new Product();
-		BeanUtils.copyProperties(createProductRequest, product);// eşleştiriyor olması lazım. Çalışma zamanında bak
+		BeanUtils.copyProperties(createProductRequest, product);
+		String errorMassage = "";
+		errorMassage = controlOperations.emptyErrorCheck(product);
+		if (!errorMassage.isEmpty())
+			errorMassage = controlOperations.repeatErrorCheck(product);
 
-		// Product product = new Product();
-		// product.setDescription(createProductRequest.getDescription());
-		// product.setImageData(createProductRequest.getImageData());
-		// product.setPrice(createProductRequest.getPrice());
-		// product.setTitle(createProductRequest.getTitle());
-
-		try {
-			this.productRepository.save(product);
-		} catch (Exception e) {
-
+		if (!errorMassage.isEmpty()) {
+			System.out.println();
+			createProducRequestController.setErrorMassage(errorMassage);
+			createProducRequestController.setSuitable(false);
+		} else {
+			createProducRequestController.setSuitable(true);
 		}
-		return null;
 
-	}
-
-	public void check() {
+		if (createProducRequestController.getSuitable()) {
+			productRepository.save(product);
+			createProducRequestController.setDone(true);
+		}
+		return createProducRequestController;
 
 	}
 
@@ -84,7 +89,7 @@ public class ProductManager implements ProductService {
 		for (Product product : products) {
 			GetByQueryProductResponse byQueryProductResponse = new GetByQueryProductResponse();
 			byQueryProductResponse.setDescription(product.getDescription());
-			byQueryProductResponse.setImageData(product.getImageData());
+			byQueryProductResponse.setImage(product.getImage());
 			byQueryProductResponse.setPrice(product.getPrice());
 			byQueryProductResponse.setTitle(product.getTitle());
 			byQueryProductResponse.setId(product.getId());
@@ -104,11 +109,17 @@ public class ProductManager implements ProductService {
 		Optional<Product> item = productRepository.findById(updateProductRequest.getId());
 		Product productFromRepository = item.get();
 		productFromRepository.setDescription(updateProductRequest.getDescription());
-		productFromRepository.setImageData(updateProductRequest.getImageData());
+		productFromRepository.setImage(updateProductRequest.getImage());
 		productFromRepository.setPrice(updateProductRequest.getPrice());
 		productFromRepository.setTitle(updateProductRequest.getTitle());
 
 		productRepository.save(productFromRepository);
+	}
+
+	@Override
+	public void deleteAll() {
+		productRepository.deleteAll();
+
 	}
 
 }

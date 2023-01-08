@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetByQueryProductResponse {
 	private String description;
-	private String imageData;
+	private String image;
 	private Double price;
 	private String title;
 	int id;

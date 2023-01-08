@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class UpdateProductRequest {
 	private String description;
 	private int id;
-	private String imageData;
+	private String image;
 	private Double price;
 	private String title;
 }

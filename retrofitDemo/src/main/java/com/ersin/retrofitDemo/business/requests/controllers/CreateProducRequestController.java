@@ -11,8 +11,5 @@ public class CreateProducRequestController {
 	private Boolean suitable;
 	private Boolean done;
 
-	private String description;
-	private String imageData;
-	private String price;
-	private String title;
+	private String errorMassage;
 }

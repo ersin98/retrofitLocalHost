@@ -1,0 +1,61 @@
+package com.ersin.retrofitDemo.business.common;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ersin.retrofitDemo.business.concretes.Settings;
+import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
+import com.ersin.retrofitDemo.entities.concretes.Product;
+
+public class ControlOperations {
+	private ProductRepository productRepository;
+	private Settings settings;
+
+	@Autowired
+	public ControlOperations(ProductRepository productRepository, Settings settings) {
+		super();
+		this.productRepository = productRepository;
+		this.settings = settings;
+	}
+
+	public String repeatErrorCheck(Product product) {
+		String errorMassage = null;
+		if (settings.getImageDataCantRepeat()) {
+			Optional<Product> item = productRepository.findByImageData(product.getImageData());
+			if (item.isPresent()) {
+				errorMassage += "Resim bilgisi tekrar edemez.\n";
+			}
+			// image.orElse(null);
+		}
+		if (settings.getTitleCantRepeat()) {
+			Optional<Product> item = productRepository.findByTitle(product.getTitle());
+			if (item.isPresent()) {
+				errorMassage += "Başlık bilgisi tekrar edemez.\n";
+			}
+		}
+		if (settings.getDescriptionCantRepeat()) {
+			Optional<Product> item = productRepository.findByDescription(product.getDescription());
+			if (item.isPresent()) {
+				errorMassage += "Açıklama bilgisi tekrar edemez.\n";
+			}
+		}
+		if (settings.getPriceCantRepeat()) {
+			Optional<Product> item = productRepository.findByPrice(product.getPrice());
+			if (item.isPresent()) {
+				errorMassage += "Ücret bilgisi tekrar edemez.\n";
+			}
+		}
+		// if (settings.getIdCantRepeat()) {
+		// Optional<Product> item = productRepository.findById(product.getId());
+		// if (item.isPresent()) {
+		// errorMassage += "ID tekrar edemez.\n";
+		// }
+		// }
+		return errorMassage;
+	}
+
+	public String emptyErrorCheck(Product product) {
+		
+	}
+}

@@ -1,0 +1,16 @@
+package com.ersin.retrofitDemo.business.concretes;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Settings {
+	// private Boolean idCantRepeat = true;//gereksiz.Kullanıcı tarafı işlemi değil
+	private Boolean imageDataCantRepeat = false;
+	private Boolean descriptionCantRepeat = false;
+	private Boolean priceCantRepeat = false;
+	private Boolean titleCantRepeat = true;
+}

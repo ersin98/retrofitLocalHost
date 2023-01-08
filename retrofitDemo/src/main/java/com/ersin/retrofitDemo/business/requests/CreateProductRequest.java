@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CreateProductRequest {
 	private String description;
-	private String imageData;
+	private String image;
 	private Double price;
 	private String title;
 }
