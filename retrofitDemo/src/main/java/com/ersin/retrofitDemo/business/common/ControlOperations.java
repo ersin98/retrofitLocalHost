@@ -52,7 +52,51 @@ public class ControlOperations {
 	}
 
 	public String emptyErrorCheck(Product product) {
-		// burayı doldur
-		return null;
+		String errorMassage = "";
+		if (settings.getImageCantEmpty()) {
+
+		}
+		if (settings.getTitleCantEmpty()) {
+			if (product.getTitle() != null) {
+				if (product.getTitle().isBlank() || product.getTitle().isEmpty()
+						|| product.getTitle().equalsIgnoreCase("null")) {
+					errorMassage += "Başlık bilgisi boş bırakılamaz";
+				}
+			} else {
+				errorMassage += "Başlık bilgisi boş bırakılamaz";
+			}
+		}
+		if (settings.getImageCantEmpty()) {
+			if (product.getImage() != null) {
+				if (product.getImage().isBlank() || product.getImage().isEmpty()
+						|| product.getImage().equalsIgnoreCase("null")) {
+					errorMassage += "Başlık bilgisi boş bırakılamaz";
+				}
+			} else {
+				errorMassage += "Görsel bilgisi boş bırakılamaz";
+			}
+		}
+		if (settings.getDescriptionCantEmpty()) {
+			if (product.getDescription() != null) {
+				if (product.getDescription().isBlank() || product.getDescription().isEmpty()
+						|| product.getDescription().equalsIgnoreCase("null")) {
+					errorMassage += "Açıklama bilgisi boş bırakılamaz";
+				}
+			} else {
+				errorMassage += "Başlık bilgisi boş bırakılamaz";
+			}
+		}
+
+		if (settings.getPriceCantEmpty()) {
+			if (product.getPrice() != null) {
+				if (product.getPrice().toString().isBlank() || product.getPrice().toString().isEmpty()
+						|| product.getPrice().toString().equalsIgnoreCase("null")) {
+					errorMassage += "Fiyat bilgisi boş bırakılamaz";
+				}
+			} else {
+				errorMassage += "Fiyat bilgisi boş bırakılamaz";
+			}
+		}
+		return errorMassage;
 	}
 }

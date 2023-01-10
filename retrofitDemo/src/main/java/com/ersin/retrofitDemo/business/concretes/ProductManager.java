@@ -57,11 +57,10 @@ public class ProductManager implements ProductService {
 		BeanUtils.copyProperties(createProductRequest, product);
 		String errorMassage = "";
 		errorMassage = controlOperations.emptyErrorCheck(product);
-		if (!errorMassage.isEmpty())
+		if (errorMassage.isEmpty())// kontroller eklenebilir
 			errorMassage = controlOperations.repeatErrorCheck(product);
 
 		if (!errorMassage.isEmpty()) {
-			System.out.println();
 			createProducRequestController.setErrorMassage(errorMassage);
 			createProducRequestController.setSuitable(false);
 		} else {
@@ -73,7 +72,6 @@ public class ProductManager implements ProductService {
 			createProducRequestController.setDone(true);
 		}
 		return createProducRequestController;
-
 	}
 
 	@Override
