@@ -38,12 +38,7 @@ public class ProductManager implements ProductService {
 
 		for (Product product : products) {
 			GetAllProductResponse responseItem = new GetAllProductResponse();
-
-			responseItem.setId(product.getId());
-			responseItem.setDescription(product.getDescription());
-			responseItem.setImage(product.getImage());
-			responseItem.setPrice(product.getPrice());
-			responseItem.setTitle(product.getTitle());
+			BeanUtils.copyProperties(responseItem, product);
 			getAllProductResponses.add(responseItem);
 		}
 		return getAllProductResponses;
@@ -56,8 +51,10 @@ public class ProductManager implements ProductService {
 		Product product = new Product();
 		BeanUtils.copyProperties(createProductRequest, product);
 		String errorMassage = "";
-		errorMassage = controlOperations.emptyErrorCheck(product);
-		if (errorMassage.isEmpty())// kontroller eklenebilir
+		if (errorMassage.isEmpty())// boş veri hatası
+			errorMassage = controlOperations.emptyErrorCheck(product);
+		// başka eklenebilir
+		if (errorMassage.isEmpty())// veri tekrarı hatası
 			errorMassage = controlOperations.repeatErrorCheck(product);
 
 		if (!errorMassage.isEmpty()) {
@@ -86,11 +83,7 @@ public class ProductManager implements ProductService {
 		List<GetByQueryProductResponse> byQueryProductResponses = new ArrayList<GetByQueryProductResponse>();
 		for (Product product : products) {
 			GetByQueryProductResponse byQueryProductResponse = new GetByQueryProductResponse();
-			byQueryProductResponse.setDescription(product.getDescription());
-			byQueryProductResponse.setImage(product.getImage());
-			byQueryProductResponse.setPrice(product.getPrice());
-			byQueryProductResponse.setTitle(product.getTitle());
-			byQueryProductResponse.setId(product.getId());
+			BeanUtils.copyProperties(product, byQueryProductResponse);
 			byQueryProductResponses.add(byQueryProductResponse);
 		}
 		return byQueryProductResponses;
@@ -98,6 +91,7 @@ public class ProductManager implements ProductService {
 
 	@Override
 	public void deleteProduct(int id) {
+
 		Optional<Product> product = productRepository.findById(id);
 		productRepository.delete(product.get());
 	}
@@ -106,18 +100,13 @@ public class ProductManager implements ProductService {
 	public void updateProductRequest(UpdateProductRequest updateProductRequest) {
 		Optional<Product> item = productRepository.findById(updateProductRequest.getId());
 		Product productFromRepository = item.get();
-		productFromRepository.setDescription(updateProductRequest.getDescription());
-		productFromRepository.setImage(updateProductRequest.getImage());
-		productFromRepository.setPrice(updateProductRequest.getPrice());
-		productFromRepository.setTitle(updateProductRequest.getTitle());
-
+		BeanUtils.copyProperties(updateProductRequest, productFromRepository);
 		productRepository.save(productFromRepository);
 	}
 
 	@Override
 	public void deleteAll() {
 		productRepository.deleteAll();
-
 	}
 
 }

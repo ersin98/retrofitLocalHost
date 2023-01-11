@@ -48,7 +48,7 @@ public class ProductsController {
 	}
 
 	@PostMapping("/deleteall")
-	public void deleteProduct() {
+	public void deleteAll() {
 		productService.deleteAll();
 	}
 

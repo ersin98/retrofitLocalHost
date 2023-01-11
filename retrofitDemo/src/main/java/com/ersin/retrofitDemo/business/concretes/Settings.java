@@ -3,20 +3,22 @@ package com.ersin.retrofitDemo.business.concretes;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Service
 public class Settings {
-	private Boolean imageCantRepeat = false;
-	private Boolean descriptionCantRepeat = false;
-	private Boolean titleCantRepeat = true;
+	private Boolean imageRepeatErrorCheck = false;
+	private Boolean descriptionRepeatErrorCheck = false;
+	private Boolean titleRepeatErrorCheck = true;
 
-	private Boolean imageCantEmpty = true;
-	private Boolean descriptionCantEmpty = true;
-	private Boolean titleCantEmpty = true;
-	private Boolean priceCantEmpty = true;
+	private Boolean imageEmptyErrorCheck = true;
+	private Boolean descriptionEmptyErrorCheck = true;
+	private Boolean titleEmptyErrorCheck = true;
+	private Boolean priceEmptyErrorCheck = true;
+
+	private Boolean pricedataTypeErrorCheck = true;
 }
