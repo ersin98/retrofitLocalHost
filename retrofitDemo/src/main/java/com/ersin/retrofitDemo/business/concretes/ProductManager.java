@@ -12,7 +12,7 @@ import com.ersin.retrofitDemo.business.abstracts.ProductService;
 import com.ersin.retrofitDemo.business.common.ControlOperations;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
 import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
-import com.ersin.retrofitDemo.business.requests.controllers.CreateProducRequestController;
+import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
 import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
@@ -38,15 +38,15 @@ public class ProductManager implements ProductService {
 
 		for (Product product : products) {
 			GetAllProductResponse responseItem = new GetAllProductResponse();
-			BeanUtils.copyProperties(responseItem, product);
+			BeanUtils.copyProperties(product, responseItem);
 			getAllProductResponses.add(responseItem);
 		}
 		return getAllProductResponses;
 	}
 
 	@Override
-	public CreateProducRequestController addProduct(CreateProductRequest createProductRequest) {
-		CreateProducRequestController createProducRequestController = new CreateProducRequestController();
+	public CreateProductRequestController addProduct(CreateProductRequest createProductRequest) {
+		CreateProductRequestController createProducRequestController = new CreateProductRequestController();
 		createProducRequestController.setDone(false);
 		Product product = new Product();
 		BeanUtils.copyProperties(createProductRequest, product);

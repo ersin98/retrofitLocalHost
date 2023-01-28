@@ -1,8 +1,0 @@
-package com.ersin.retrofitDemo.business.requests.controllers;
-
-public class CreateProducRequestController {
-	private Boolean description;
-	private Boolean imageData;
-	private Boolean price;
-	private Boolean title;
-}

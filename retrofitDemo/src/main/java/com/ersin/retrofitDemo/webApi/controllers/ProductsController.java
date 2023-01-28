@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
 import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
-import com.ersin.retrofitDemo.business.requests.controllers.CreateProducRequestController;
+import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
 
@@ -38,7 +38,7 @@ public class ProductsController {
 	}
 
 	@PostMapping("/add")
-	public CreateProducRequestController addProduct(@RequestBody CreateProductRequest createProductRequest) {
+	public CreateProductRequestController addProduct(@RequestBody CreateProductRequest createProductRequest) {
 		return productService.addProduct(createProductRequest);
 	}
 

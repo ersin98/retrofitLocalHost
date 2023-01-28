@@ -4,14 +4,14 @@ import java.util.List;
 
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
 import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
-import com.ersin.retrofitDemo.business.requests.controllers.CreateProducRequestController;
+import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
 
 public interface ProductService {
 	List<GetAllProductResponse> getAll();
 
-	CreateProducRequestController addProduct(CreateProductRequest createProductRequest);
+	CreateProductRequestController addProduct(CreateProductRequest createProductRequest);
 
 	List<GetByQueryProductResponse> getByTitle(String query);
 
