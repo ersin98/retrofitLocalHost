@@ -13,9 +13,13 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 	// Optional<List<Product>> findByTitleLike(String Query);
 	// Optional<List<Product>> findByTitleStartingWith(String Query);
 
-	Optional<Product> findByImage(String string);
+	// Optional<Product> findByImage(String string);//Id sınırlaması yok
+	// Optional<Product> findByDescription(String description);
+	// Optional<Product> findByTitle(String title);
 
-	Optional<Product> findByDescription(String description);
+	Optional<Product> findByTitleAndIdNot(String title, Integer id);
 
-	Optional<Product> findByTitle(String title);
+	Optional<Product> findByDescriptionAndIdNot(String description, Integer id);
+
+	Optional<Product> findByImageAndIdNot(String string, Integer id);
 }

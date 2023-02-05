@@ -24,20 +24,22 @@ public class ControlOperations {
 	public String repeatErrorCheck(Product product) {
 		String errorMassage = "";
 		if (settings.getImageRepeatErrorCheck()) {
-			Optional<Product> image = productRepository.findByImage(product.getImage());
+			Optional<Product> image = productRepository.findByImageAnIdNot(product.getImage(), product.getId());
 			if (image.isPresent()) {
 				errorMassage += "Resim bilgisi tekrar edemez.\n";
 			}
 			// image.orElse(null);
 		}
 		if (settings.getTitleRepeatErrorCheck()) {
-			Optional<Product> title = productRepository.findByTitle(product.getTitle());
+			// kendisi dışındakileri arıyor
+			Optional<Product> title = productRepository.findByTitleAndIdNot(product.getTitle(), product.getId());
 			if (title.isPresent()) {
-				errorMassage += "Ürünün ad bilgisi tekrar edemez.\n";
+				errorMassage += "Başlık bilgisi tekrar edemez.\n";
 			}
 		}
 		if (settings.getDescriptionRepeatErrorCheck()) {
-			Optional<Product> description = productRepository.findByDescription(product.getDescription());
+			Optional<Product> description = productRepository.findByDescriptionAndIdNot(product.getDescription(),
+					product.getId());
 			if (description.isPresent()) {
 				errorMassage += "Açıklama bilgisi tekrar edemez.\n";
 			}
@@ -57,43 +59,55 @@ public class ControlOperations {
 			if (product.getTitle() != null) {
 				if (product.getTitle().isBlank() || product.getTitle().isEmpty()
 						|| product.getTitle().equalsIgnoreCase("null")) {
-					errorMassage += "Başlık bilgisi boş bırakılamaz";
+					errorMassage += "Başlık bilgisi boş bırakılamaz \n";
 				}
 			} else {
-				errorMassage += "Başlık bilgisi boş bırakılamaz";
+				errorMassage += "Başlık bilgisi boş bırakılamaz \n";
 			}
 		}
 		if (settings.getImageEmptyErrorCheck()) {
 			if (product.getImage() != null) {
 				if (product.getImage().isBlank() || product.getImage().isEmpty()
 						|| product.getImage().equalsIgnoreCase("null")) {
-					errorMassage += "Başlık bilgisi boş bırakılamaz";
+					errorMassage += "Görsel bilgisi boş bırakılamaz \n";
 				}
 			} else {
-				errorMassage += "Görsel bilgisi boş bırakılamaz";
+				errorMassage += "Görsel bilgisi boş bırakılamaz \n";
 			}
 		}
 		if (settings.getDescriptionEmptyErrorCheck()) {
 			if (product.getDescription() != null) {
 				if (product.getDescription().isBlank() || product.getDescription().isEmpty()
 						|| product.getDescription().equalsIgnoreCase("null")) {
-					errorMassage += "Açıklama bilgisi boş bırakılamaz";
+					errorMassage += "Açıklama bilgisi boş bırakılamaz \n";
 				}
 			} else {
-				errorMassage += "Başlık bilgisi boş bırakılamaz";
+				errorMassage += "Açıklama bilgisi boş bırakılamaz \n";
 			}
 		}
 
 		if (settings.getPriceEmptyErrorCheck()) {
 			if (product.getPrice() != null) {
 				if (product.getPrice().toString().isBlank() || product.getPrice().toString().isEmpty()
-						|| product.getPrice().toString().equalsIgnoreCase("null")) {
-					errorMassage += "Fiyat bilgisi boş bırakılamaz";
+						|| product.getPrice().toString().equalsIgnoreCase("null")
+						|| product.getPrice().toString().equalsIgnoreCase("0.0")) {
+					errorMassage += "Fiyat bilgisi boş bırakılamaz \n";
 				}
 			} else {
-				errorMassage += "Fiyat bilgisi boş bırakılamaz";
+				errorMassage += "Fiyat bilgisi boş bırakılamaz \n";
 			}
 		}
 		return errorMassage;
+	}
+
+	public String emptyErrorCheckItem(String item) {
+
+		return null;
+
+	}
+	public String emptyErrorCheckItem(Integer item) {
+
+		return null;
+
 	}
 }

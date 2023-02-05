@@ -12,11 +12,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Table(name = "products")
-@Data // @Getter @Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Product {
+
 	@Column(name = "description", columnDefinition = "text")
 	private String description;
 	@Id

@@ -1,5 +1,14 @@
 package com.ersin.retrofitDemo.business.requests.controllers;
 
-public class UpdateProductRequestController {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UpdateProductRequestController {
+	private Boolean suitable;
+	private Boolean done;
+	private String errorMassage;
 }

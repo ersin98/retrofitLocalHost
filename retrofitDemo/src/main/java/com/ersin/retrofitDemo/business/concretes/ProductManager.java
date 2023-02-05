@@ -13,6 +13,7 @@ import com.ersin.retrofitDemo.business.common.ControlOperations;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
 import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
 import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
+import com.ersin.retrofitDemo.business.requests.controllers.UpdateProductRequestController;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
 import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
@@ -91,17 +92,50 @@ public class ProductManager implements ProductService {
 
 	@Override
 	public void deleteProduct(int id) {
-
 		Optional<Product> product = productRepository.findById(id);
 		productRepository.delete(product.get());
 	}
 
 	@Override
-	public void updateProductRequest(UpdateProductRequest updateProductRequest) {
+	public UpdateProductRequestController updateProductRequest(UpdateProductRequest updateProductRequest) {
 		Optional<Product> item = productRepository.findById(updateProductRequest.getId());
 		Product productFromRepository = item.get();
-		BeanUtils.copyProperties(updateProductRequest, productFromRepository);
-		productRepository.save(productFromRepository);
+		UpdateProductRequestController updateProductRequestController = new UpdateProductRequestController();
+		Product Updateproduct = new Product();
+		BeanUtils.copyProperties(updateProductRequest, Updateproduct);
+		Updateproduct = controlOperations.emptyErrorCheckItem(Updateproduct);
+		if (Updateproduct.getTitle().equalsIgnoreCase("update")) {
+			productFromRepository.setTitle(updateProductRequest.getTitle());
+		}
+		if (Updateproduct.getImage().equalsIgnoreCase("update")) {
+
+			productFromRepository.setImage(updateProductRequest.getImage());
+		}
+		if (Updateproduct.getPrice().toString().equalsIgnoreCase("1.1")) {
+			productFromRepository.setPrice(updateProductRequest.getPrice());
+		}
+		if (Updateproduct.getDescription().equalsIgnoreCase("update")) {
+			productFromRepository.setDescription(updateProductRequest.getDescription());
+		}
+		updateProductRequestController.setDone(false);
+		String errorMassage = "";
+
+		if (errorMassage.isEmpty())// veri tekrarı hatası
+			errorMassage = controlOperations.repeatErrorCheck(productFromRepository);
+
+		if (!errorMassage.isEmpty()) {
+			updateProductRequestController.setErrorMassage(errorMassage);
+			updateProductRequestController.setSuitable(false);
+		} else {
+			updateProductRequestController.setSuitable(true);
+		}
+
+		if (updateProductRequestController.getSuitable()) {
+			productRepository.save(productFromRepository);
+			updateProductRequestController.setDone(true);
+		}
+		return updateProductRequestController;
+
 	}
 
 	@Override

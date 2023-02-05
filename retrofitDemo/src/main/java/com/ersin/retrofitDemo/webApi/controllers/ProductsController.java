@@ -13,6 +13,7 @@ import com.ersin.retrofitDemo.business.abstracts.ProductService;
 import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
 import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
 import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
+import com.ersin.retrofitDemo.business.requests.controllers.UpdateProductRequestController;
 import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
 
@@ -53,7 +54,7 @@ public class ProductsController {
 	}
 
 	@PostMapping("/update")
-	public void updateProduct(@RequestBody UpdateProductRequest updateProductRequest) {
-		productService.updateProductRequest(updateProductRequest);
+	public UpdateProductRequestController updateProduct(@RequestBody UpdateProductRequest updateProductRequest) {
+		return productService.updateProductRequest(updateProductRequest);
 	}
 }
