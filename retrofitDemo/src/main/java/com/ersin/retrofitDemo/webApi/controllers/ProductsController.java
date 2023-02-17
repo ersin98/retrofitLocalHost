@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
-import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
-import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
-import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
-import com.ersin.retrofitDemo.business.requests.controllers.UpdateProductRequestController;
-import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
-import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
+import com.ersin.retrofitDemo.business.requests.product.CreateProductRequest;
+import com.ersin.retrofitDemo.business.requests.product.UpdateProductRequest;
+import com.ersin.retrofitDemo.business.responses.product.GetAllProductResponse;
+import com.ersin.retrofitDemo.business.responses.product.GetByQueryProductResponse;
+import com.ersin.retrofitDemo.business.responses.product.ProductResponse;
 
 @RestController
 @RequestMapping("/api/products")
@@ -39,7 +38,7 @@ public class ProductsController {
 	}
 
 	@PostMapping("/add")
-	public CreateProductRequestController addProduct(@RequestBody CreateProductRequest createProductRequest) {
+	public ProductResponse addProduct(@RequestBody CreateProductRequest createProductRequest) {
 		return productService.addProduct(createProductRequest);
 	}
 
@@ -54,7 +53,7 @@ public class ProductsController {
 	}
 
 	@PostMapping("/update")
-	public UpdateProductRequestController updateProduct(@RequestBody UpdateProductRequest updateProductRequest) {
+	public ProductResponse updateProduct(@RequestBody UpdateProductRequest updateProductRequest) {
 		return productService.updateProductRequest(updateProductRequest);
 	}
 }

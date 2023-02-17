@@ -9,35 +9,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
-import com.ersin.retrofitDemo.business.common.ControlOperations;
-import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
-import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
-import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
-import com.ersin.retrofitDemo.business.requests.controllers.UpdateProductRequestController;
-import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
-import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
+import com.ersin.retrofitDemo.business.common.Settings;
+import com.ersin.retrofitDemo.business.requests.product.CreateProductRequest;
+import com.ersin.retrofitDemo.business.requests.product.UpdateProductRequest;
+import com.ersin.retrofitDemo.business.responses.product.GetAllProductResponse;
+import com.ersin.retrofitDemo.business.responses.product.GetByQueryProductResponse;
+import com.ersin.retrofitDemo.business.responses.product.ProductResponse;
 import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
-import com.ersin.retrofitDemo.entities.concretes.Product;
+import com.ersin.retrofitDemo.entities.concretes.Products;
 
 @Service
 public class ProductManager implements ProductService {
 	private ProductRepository productRepository;
-	private ControlOperations controlOperations;
+	private Settings settings;
 
 	@Autowired
-	public ProductManager(ProductRepository productRepository, ControlOperations controlOperations) {
+	public ProductManager(ProductRepository productRepository, Settings settings) {
 		super();
 		this.productRepository = productRepository;
-		this.controlOperations = controlOperations;
+		this.settings = settings;
 	}
 
 	@Override
 	public List<GetAllProductResponse> getAll() {
 
-		List<Product> products = productRepository.findAll();
+		List<Products> products = productRepository.findAll();
 		List<GetAllProductResponse> getAllProductResponses = new ArrayList<GetAllProductResponse>();
 
-		for (Product product : products) {
+		for (Products product : products) {
 			GetAllProductResponse responseItem = new GetAllProductResponse();
 			BeanUtils.copyProperties(product, responseItem);
 			getAllProductResponses.add(responseItem);
@@ -46,43 +45,43 @@ public class ProductManager implements ProductService {
 	}
 
 	@Override
-	public CreateProductRequestController addProduct(CreateProductRequest createProductRequest) {
-		CreateProductRequestController createProducRequestController = new CreateProductRequestController();
-		createProducRequestController.setDone(false);
-		Product product = new Product();
+	public ProductResponse addProduct(CreateProductRequest createProductRequest) {
+		ProductResponse productResponse = new ProductResponse();
+		productResponse.setDone(false);
+		Products product = new Products();
 		BeanUtils.copyProperties(createProductRequest, product);
 		String errorMassage = "";
 		if (errorMassage.isEmpty())// boş veri hatası
-			errorMassage = controlOperations.emptyErrorCheck(product);
+			errorMassage = emptyErrorCheck(product);
 		// başka eklenebilir
 		if (errorMassage.isEmpty())// veri tekrarı hatası
-			errorMassage = controlOperations.repeatErrorCheck(product);
+			errorMassage = repeatErrorCheck(product);
 
 		if (!errorMassage.isEmpty()) {
-			createProducRequestController.setErrorMassage(errorMassage);
-			createProducRequestController.setSuitable(false);
+			productResponse.setErrorMassage(errorMassage);
+			productResponse.setSuitable(false);
 		} else {
-			createProducRequestController.setSuitable(true);
+			productResponse.setSuitable(true);
 		}
 
-		if (createProducRequestController.getSuitable()) {
+		if (productResponse.getSuitable()) {
 			productRepository.save(product);
-			createProducRequestController.setDone(true);
+			productResponse.setDone(true);
 		}
-		return createProducRequestController;
+		return productResponse;
 	}
 
 	@Override
 	public List<GetByQueryProductResponse> getByTitle(String title) {
-		List<Product> products = null;
+		List<Products> products = null;
 		if (title.isBlank() || title.isEmpty()) {
 			products = productRepository.findAll();
 		} else {
-			Optional<List<Product>> getProduct = productRepository.findByTitleContaining(title);
+			Optional<List<Products>> getProduct = productRepository.findByTitleContaining(title);
 			products = getProduct.get();
 		}
 		List<GetByQueryProductResponse> byQueryProductResponses = new ArrayList<GetByQueryProductResponse>();
-		for (Product product : products) {
+		for (Products product : products) {
 			GetByQueryProductResponse byQueryProductResponse = new GetByQueryProductResponse();
 			BeanUtils.copyProperties(product, byQueryProductResponse);
 			byQueryProductResponses.add(byQueryProductResponse);
@@ -92,49 +91,48 @@ public class ProductManager implements ProductService {
 
 	@Override
 	public void deleteProduct(int id) {
-		Optional<Product> product = productRepository.findById(id);
+		Optional<Products> product = productRepository.findById(id);
 		productRepository.delete(product.get());
 	}
 
 	@Override
-	public UpdateProductRequestController updateProductRequest(UpdateProductRequest updateProductRequest) {
-		Optional<Product> item = productRepository.findById(updateProductRequest.getId());
-		Product productFromRepository = item.get();
-		UpdateProductRequestController updateProductRequestController = new UpdateProductRequestController();
-		Product Updateproduct = new Product();
+	public ProductResponse updateProductRequest(UpdateProductRequest updateProductRequest) {
+		Optional<Products> productFromRepository = productRepository.findById(updateProductRequest.getId());// .get()
+		ProductResponse productResponse = new ProductResponse();
+		Products Updateproduct = new Products();
 		BeanUtils.copyProperties(updateProductRequest, Updateproduct);
-		Updateproduct = controlOperations.emptyErrorCheckItem(Updateproduct);
+		Updateproduct = emptyErrorCheckItem(Updateproduct);
 		if (Updateproduct.getTitle().equalsIgnoreCase("update")) {
-			productFromRepository.setTitle(updateProductRequest.getTitle());
+			productFromRepository.get().setTitle(updateProductRequest.getTitle());
 		}
 		if (Updateproduct.getImage().equalsIgnoreCase("update")) {
 
-			productFromRepository.setImage(updateProductRequest.getImage());
+			productFromRepository.get().setImage(updateProductRequest.getImage());
 		}
 		if (Updateproduct.getPrice().toString().equalsIgnoreCase("1.1")) {
-			productFromRepository.setPrice(updateProductRequest.getPrice());
+			productFromRepository.get().setPrice(updateProductRequest.getPrice());
 		}
 		if (Updateproduct.getDescription().equalsIgnoreCase("update")) {
-			productFromRepository.setDescription(updateProductRequest.getDescription());
+			productFromRepository.get().setDescription(updateProductRequest.getDescription());
 		}
-		updateProductRequestController.setDone(false);
+		productResponse.setDone(false);
 		String errorMassage = "";
 
 		if (errorMassage.isEmpty())// veri tekrarı hatası
-			errorMassage = controlOperations.repeatErrorCheck(productFromRepository);
+			errorMassage = repeatErrorCheck(productFromRepository.get());
 
 		if (!errorMassage.isEmpty()) {
-			updateProductRequestController.setErrorMassage(errorMassage);
-			updateProductRequestController.setSuitable(false);
+			productResponse.setErrorMassage(errorMassage);
+			productResponse.setSuitable(false);
 		} else {
-			updateProductRequestController.setSuitable(true);
+			productResponse.setSuitable(true);
 		}
 
-		if (updateProductRequestController.getSuitable()) {
-			productRepository.save(productFromRepository);
-			updateProductRequestController.setDone(true);
+		if (productResponse.getSuitable()) {
+			productRepository.save(productFromRepository.get());
+			productResponse.setDone(true);
 		}
-		return updateProductRequestController;
+		return productResponse;
 
 	}
 
@@ -143,4 +141,123 @@ public class ProductManager implements ProductService {
 		productRepository.deleteAll();
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////
+	public String repeatErrorCheck(Products product) {
+		String errorMassage = "";
+		if (settings.getImageRepeatErrorCheck()) {
+			Optional<Products> image = productRepository.findByImageAndIdNot(product.getImage(), product.getId());
+			if (image.isPresent()) {
+				errorMassage += "Resim bilgisi tekrar edemez.\n";
+			}
+			// image.orElse(null);
+		}
+		if (settings.getTitleRepeatErrorCheck()) {
+			// kendisi dışındakileri arıyor
+			Optional<Products> title = productRepository.findByTitleAndIdNot(product.getTitle(), product.getId());
+
+			if (title.isPresent()) {
+				errorMassage += "Başlık bilgisi tekrar edemez.\n" + "sonuç:" + title;
+			}
+		}
+		if (settings.getDescriptionRepeatErrorCheck()) {
+			Optional<Products> description = productRepository.findByDescriptionAndIdNot(product.getDescription(),
+					product.getId());
+			if (description.isPresent()) {
+				errorMassage += "Açıklama bilgisi tekrar edemez.\n";
+			}
+		}
+		// if (settings.getIdCantRepeat()) {
+		// Optional<Product> item = productRepository.findById(product.getId());
+		// if (item.isPresent()) {
+		// errorMassage += "ID tekrar edemez.\n";
+		// }
+		// }
+		return errorMassage;
+	}
+
+	public String emptyErrorCheck(Products product) {
+		String errorMassage = "";
+		if (settings.getTitleEmptyErrorCheck()) {
+			if (product.getTitle() != null) {
+				if (product.getTitle().isBlank() || product.getTitle().isEmpty()
+						|| product.getTitle().equalsIgnoreCase("null")) {
+					errorMassage += "Başlık bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Başlık bilgisi boş bırakılamaz \n";
+			}
+		}
+		if (settings.getImageEmptyErrorCheck()) {
+			if (product.getImage() != null) {
+				if (product.getImage().isBlank() || product.getImage().isEmpty()
+						|| product.getImage().equalsIgnoreCase("null")) {
+					errorMassage += "Görsel bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Görsel bilgisi boş bırakılamaz \n";
+			}
+		}
+		if (settings.getDescriptionEmptyErrorCheck()) {
+			if (product.getDescription() != null) {
+				if (product.getDescription().isBlank() || product.getDescription().isEmpty()
+						|| product.getDescription().equalsIgnoreCase("null")) {
+					errorMassage += "Açıklama bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Açıklama bilgisi boş bırakılamaz \n";
+			}
+		}
+
+		if (settings.getPriceEmptyErrorCheck()) {
+			if (product.getPrice() != null) {
+				if (product.getPrice().toString().isBlank() || product.getPrice().toString().isEmpty()
+						|| product.getPrice().toString().equalsIgnoreCase("null")
+						|| product.getPrice().toString().equalsIgnoreCase("0.0")) {
+					errorMassage += "Fiyat bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Fiyat bilgisi boş bırakılamaz \n";
+			}
+		}
+		return errorMassage;
+	}
+
+	public Products emptyErrorCheckItem(Products product) {
+		if (settings.getTitleEmptyErrorCheck()) {
+			if (product.getTitle() != null) {
+				if (!product.getTitle().isBlank() && !product.getTitle().isEmpty()
+						&& !product.getTitle().equalsIgnoreCase("null")) {
+					product.setTitle("update");
+				}
+			}
+		}
+		if (settings.getImageEmptyErrorCheck()) {
+			if (product.getImage() != null) {
+				if (!product.getImage().isBlank() && !product.getImage().isEmpty()
+						&& !product.getImage().equalsIgnoreCase("null")) {
+					product.setImage("update");
+				}
+			}
+		}
+
+		if (settings.getDescriptionEmptyErrorCheck()) {
+			if (product.getDescription() != null) {
+				if (!product.getDescription().isBlank() && !product.getDescription().isEmpty()
+						&& !product.getDescription().equalsIgnoreCase("null")) {
+					product.setDescription("update");
+				}
+			}
+		}
+
+		if (settings.getPriceEmptyErrorCheck()) {
+			if (product.getPrice() != null) {
+				if (!product.getPrice().toString().isBlank() && !product.getPrice().toString().isEmpty()
+						&& !product.getPrice().toString().equalsIgnoreCase("null")
+						&& !product.getPrice().toString().equalsIgnoreCase("0.0")) {
+					product.setPrice(1.1);
+				}
+			}
+		}
+		return product;
+	}
 }

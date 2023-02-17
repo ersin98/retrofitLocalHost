@@ -1,8 +1,0 @@
-package com.ersin.retrofitDemo.business.requests.controllers;
-
-public class UpdateProductRequestController {
-	private Boolean suitable;
-	private Boolean done;
-
-	private String errorMassage;
-}

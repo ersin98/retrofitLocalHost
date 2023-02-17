@@ -1,0 +1,191 @@
+package com.ersin.retrofitDemo.business.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+
+import com.ersin.retrofitDemo.business.abstracts.CategoryService;
+import com.ersin.retrofitDemo.business.common.Settings;
+import com.ersin.retrofitDemo.business.requests.category.CreateCategoryRequest;
+import com.ersin.retrofitDemo.business.requests.category.UpdateCategoryRequest;
+import com.ersin.retrofitDemo.business.responses.category.CategoryResponse;
+import com.ersin.retrofitDemo.business.responses.category.GetAllCategoryResponse;
+import com.ersin.retrofitDemo.dataAccess.abstracts.CategoryRepository;
+import com.ersin.retrofitDemo.entities.concretes.Categories;
+
+@Service
+public class CategoryManager implements CategoryService {
+	private CategoryRepository categoryRepository;
+	private Settings settings;
+
+	public CategoryManager(CategoryRepository categoryRepository, Settings settings) {
+		super();
+		this.categoryRepository = categoryRepository;
+		this.settings = settings;
+	}
+
+	@Override
+	public List<GetAllCategoryResponse> getAll() {
+		List<Categories> categories = categoryRepository.findAll();
+		List<GetAllCategoryResponse> getAllCategoryResponses = new ArrayList<GetAllCategoryResponse>();
+
+		for (Categories category : categories) {
+			GetAllCategoryResponse responseItem = new GetAllCategoryResponse();
+			BeanUtils.copyProperties(category, responseItem);
+			getAllCategoryResponses.add(responseItem);
+		}
+		return getAllCategoryResponses;
+	}
+
+	@Override
+	public CategoryResponse addCategory(CreateCategoryRequest createcategoryRequest) {
+		Categories category = new Categories();
+		BeanUtils.copyProperties(createcategoryRequest, category);
+		categoryRepository.save(category);
+		return null;
+	}
+
+	@Override
+	public void deleteCategory(int id) {
+		Optional<Categories> category = categoryRepository.findById(id);
+		categoryRepository.delete(category.get());
+	}
+
+	@Override
+	public void deleteAll() {
+		categoryRepository.deleteAll();
+	}
+
+	@Override
+	public CategoryResponse updateCategoryRequest(UpdateCategoryRequest updateCategoryRequest) {
+		Optional<Categories> category = categoryRepository.findById(updateCategoryRequest.getId());
+		Categories categoryUpdate = new Categories();
+		BeanUtils.copyProperties(category.get(), categoryUpdate);
+		categoryRepository.save(categoryUpdate);
+		return null;
+	}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+	public String repeatErrorCheck(Categories category) {
+		String errorMassage = "";
+		if (settings.getImageRepeatErrorCheck()) {
+			Optional<Categories> image = categoryRepository.findByImageAndIdNot(category.getImage(), category.getId());
+			if (image.isPresent()) {
+				errorMassage += "Resim bilgisi tekrar edemez.\n";
+			}
+			// image.orElse(null);
+		}
+		if (settings.getTitleRepeatErrorCheck()) {
+			// kendisi dışındakileri arıyor
+			Optional<Categories> title = categoryRepository.findByTitleAndIdNot(category.getTitle(), category.getId());
+
+			if (title.isPresent()) {
+				errorMassage += "Başlık bilgisi tekrar edemez.\n" + "sonuç:" + title;
+			}
+		}
+		if (settings.getDescriptionRepeatErrorCheck()) {
+			Optional<Categories> description = categoryRepository.findByDescriptionAndIdNot(category.getDescription(),
+					category.getId());
+			if (description.isPresent()) {
+				errorMassage += "Açıklama bilgisi tekrar edemez.\n";
+			}
+		}
+		// if (settings.getIdCantRepeat()) {
+		// Optional<category> item = categoryRepository.findById(category.getId());
+		// if (item.isPresent()) {
+		// errorMassage += "ID tekrar edemez.\n";
+		// }
+		// }
+		return errorMassage;
+	}
+
+	public String emptyErrorCheck(Categories category) {
+		String errorMassage = "";
+		if (settings.getTitleEmptyErrorCheck()) {
+			if (category.getTitle() != null) {
+				if (category.getTitle().isBlank() || category.getTitle().isEmpty()
+						|| category.getTitle().equalsIgnoreCase("null")) {
+					errorMassage += "Başlık bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Başlık bilgisi boş bırakılamaz \n";
+			}
+		}
+
+		if (settings.getImageEmptyErrorCheck()) {
+			if (category.getImage() != null) {
+				if (category.getImage().isBlank() || category.getImage().isEmpty()
+						|| category.getImage().equalsIgnoreCase("null")) {
+					errorMassage += "Görsel bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Görsel bilgisi boş bırakılamaz \n";
+			}
+		}
+		if (settings.getDescriptionEmptyErrorCheck()) {
+			if (category.getDescription() != null) {
+				if (category.getDescription().isBlank() || category.getDescription().isEmpty()
+						|| category.getDescription().equalsIgnoreCase("null")) {
+					errorMassage += "Açıklama bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Açıklama bilgisi boş bırakılamaz \n";
+			}
+		}
+
+		if (settings.getPriceEmptyErrorCheck()) {
+			if (category.getPrice() != null) {
+				if (category.getPrice().toString().isBlank() || category.getPrice().toString().isEmpty()
+						|| category.getPrice().toString().equalsIgnoreCase("null")
+						|| category.getPrice().toString().equalsIgnoreCase("0.0")) {
+					errorMassage += "Fiyat bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Fiyat bilgisi boş bırakılamaz \n";
+			}
+		}
+		return errorMassage;
+	}
+
+	public Categories emptyErrorCheckItem(Categories category) {
+		if (settings.getTitleEmptyErrorCheck()) {
+			if (category.getTitle() != null) {
+				if (!category.getTitle().isBlank() && !category.getTitle().isEmpty()
+						&& !category.getTitle().equalsIgnoreCase("null")) {
+					category.setTitle("update");
+				}
+			}
+		}
+		if (settings.getImageEmptyErrorCheck()) {
+			if (category.getImage() != null) {
+				if (!category.getImage().isBlank() && !category.getImage().isEmpty()
+						&& !category.getImage().equalsIgnoreCase("null")) {
+					category.setImage("update");
+				}
+			}
+		}
+
+		if (settings.getDescriptionEmptyErrorCheck()) {
+			if (category.getDescription() != null) {
+				if (!category.getDescription().isBlank() && !category.getDescription().isEmpty()
+						&& !category.getDescription().equalsIgnoreCase("null")) {
+					category.setDescription("update");
+				}
+			}
+		}
+
+		if (settings.getPriceEmptyErrorCheck()) {
+			if (category.getPrice() != null) {
+				if (!category.getPrice().toString().isBlank() && !category.getPrice().toString().isEmpty()
+						&& !category.getPrice().toString().equalsIgnoreCase("null")
+						&& !category.getPrice().toString().equalsIgnoreCase("0.0")) {
+					category.setPrice(1.1);
+				}
+			}
+		}
+		return category;
+	}
+}

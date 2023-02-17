@@ -2,17 +2,16 @@ package com.ersin.retrofitDemo.business.abstracts;
 
 import java.util.List;
 
-import com.ersin.retrofitDemo.business.requests.CreateProductRequest;
-import com.ersin.retrofitDemo.business.requests.UpdateProductRequest;
-import com.ersin.retrofitDemo.business.requests.controllers.CreateProductRequestController;
-import com.ersin.retrofitDemo.business.requests.controllers.UpdateProductRequestController;
-import com.ersin.retrofitDemo.business.responses.GetAllProductResponse;
-import com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse;
+import com.ersin.retrofitDemo.business.requests.product.CreateProductRequest;
+import com.ersin.retrofitDemo.business.requests.product.UpdateProductRequest;
+import com.ersin.retrofitDemo.business.responses.product.GetAllProductResponse;
+import com.ersin.retrofitDemo.business.responses.product.GetByQueryProductResponse;
+import com.ersin.retrofitDemo.business.responses.product.ProductResponse;
 
 public interface ProductService {
 	List<GetAllProductResponse> getAll();
 
-	CreateProductRequestController addProduct(CreateProductRequest createProductRequest);
+	ProductResponse addProduct(CreateProductRequest createProductRequest);
 
 	List<GetByQueryProductResponse> getByTitle(String query);
 
@@ -20,6 +19,6 @@ public interface ProductService {
 
 	void deleteAll();
 
-	UpdateProductRequestController updateProductRequest(UpdateProductRequest productRequest);
+	ProductResponse updateProductRequest(UpdateProductRequest productRequest);
 
 }
