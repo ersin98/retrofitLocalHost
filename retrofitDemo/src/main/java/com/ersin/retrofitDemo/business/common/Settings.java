@@ -21,6 +21,7 @@ public class Settings {
 	private Boolean descriptionEmptyErrorCheck = true;
 	private Boolean titleEmptyErrorCheck = true;
 	private Boolean priceEmptyErrorCheck = true;
+	private Boolean categoryEmptyErrorCheck = true;
 	// Veri Türü
 	private Boolean pricedataTypeErrorCheck = true;
 

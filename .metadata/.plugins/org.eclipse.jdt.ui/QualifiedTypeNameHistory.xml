@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.requests.CreateProductRequests"/>
-    <fullyQualifiedTypeName name="java.lang.Long"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.responses.GetByQueryProductResponse"/>
@@ -26,10 +22,8 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
-    <fullyQualifiedTypeName name="lombok.extern.java.Log"/>
     <fullyQualifiedTypeName name="org.apache.commons.logging.Log"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="lombok.Getter"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.requests.UpdateProductRequest"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.requests.controllers.UpdateProductRequestController"/>
@@ -43,7 +37,6 @@
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.entities.concretes.Product"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.webApi.controllers.CategoriesController"/>
@@ -51,13 +44,20 @@
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.requests.category.UpdateCategoryRequest"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.abstracts.CategoryService"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
-    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.dataAccess.abstracts.CategoryRepository"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.responses.category.GetAllCategoryResponse"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.entities.concretes.Category"/>
     <fullyQualifiedTypeName name="org.springframework.beans.BeanUtils"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.common.Settings"/>
-    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.entities.concretes.Categories"/>
     <fullyQualifiedTypeName name="com.ersin.retrofitDemo.business.responses.category.CategoryResponse"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.io.Console"/>
+    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.entities.concretes.Products"/>
+    <fullyQualifiedTypeName name="lombok.extern.slf4j.Slf4j"/>
+    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.dataAccess.abstracts.CategoryRepository"/>
+    <fullyQualifiedTypeName name="com.ersin.retrofitDemo.entities.concretes.Categories"/>
+    <fullyQualifiedTypeName name="lombok.extern.java.Log"/>
+    <fullyQualifiedTypeName name="lombok.extern.log4j.Log4j2"/>
 </qualifiedTypeNameHistroy>

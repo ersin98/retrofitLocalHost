@@ -15,24 +15,32 @@ import com.ersin.retrofitDemo.business.requests.product.UpdateProductRequest;
 import com.ersin.retrofitDemo.business.responses.product.GetAllProductResponse;
 import com.ersin.retrofitDemo.business.responses.product.GetByQueryProductResponse;
 import com.ersin.retrofitDemo.business.responses.product.ProductResponse;
+import com.ersin.retrofitDemo.dataAccess.abstracts.CategoryRepository;
 import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
+import com.ersin.retrofitDemo.entities.concretes.Categories;
 import com.ersin.retrofitDemo.entities.concretes.Products;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class ProductManager implements ProductService {
 	private ProductRepository productRepository;
+	private CategoryRepository categoryRepository;
 	private Settings settings;
+	List<Products> update = null;// emptyErrorCheckItem içerisindeki kategori için update yazan bir product
 
 	@Autowired
-	public ProductManager(ProductRepository productRepository, Settings settings) {
+	public ProductManager(ProductRepository productRepository, CategoryRepository categoryRepository,
+			Settings settings) {
 		super();
 		this.productRepository = productRepository;
 		this.settings = settings;
+		this.categoryRepository = categoryRepository;
 	}
 
 	@Override
 	public List<GetAllProductResponse> getAll() {
-
 		List<Products> products = productRepository.findAll();
 		List<GetAllProductResponse> getAllProductResponses = new ArrayList<GetAllProductResponse>();
 
@@ -50,6 +58,10 @@ public class ProductManager implements ProductService {
 		productResponse.setDone(false);
 		Products product = new Products();
 		BeanUtils.copyProperties(createProductRequest, product);
+		if (createProductRequest.getCategoryID() != null) {
+			Optional<Categories> categories = categoryRepository.findById(createProductRequest.getCategoryID());
+			product.setCategory(categories.get());
+		}
 		String errorMassage = "";
 		if (errorMassage.isEmpty())// boş veri hatası
 			errorMassage = emptyErrorCheck(product);
@@ -97,16 +109,20 @@ public class ProductManager implements ProductService {
 
 	@Override
 	public ProductResponse updateProductRequest(UpdateProductRequest updateProductRequest) {
+		log.info("NERDE KALDIK ::: update işlemi başladı");
 		Optional<Products> productFromRepository = productRepository.findById(updateProductRequest.getId());// .get()
 		ProductResponse productResponse = new ProductResponse();
 		Products Updateproduct = new Products();
 		BeanUtils.copyProperties(updateProductRequest, Updateproduct);
+		if (updateProductRequest.getCategoryID() != null) {
+			Optional<Categories> categories = categoryRepository.findById(updateProductRequest.getCategoryID());
+			Updateproduct.setCategory(categories.get());
+		}
 		Updateproduct = emptyErrorCheckItem(Updateproduct);
 		if (Updateproduct.getTitle().equalsIgnoreCase("update")) {
 			productFromRepository.get().setTitle(updateProductRequest.getTitle());
 		}
 		if (Updateproduct.getImage().equalsIgnoreCase("update")) {
-
 			productFromRepository.get().setImage(updateProductRequest.getImage());
 		}
 		if (Updateproduct.getPrice().toString().equalsIgnoreCase("1.1")) {
@@ -115,11 +131,17 @@ public class ProductManager implements ProductService {
 		if (Updateproduct.getDescription().equalsIgnoreCase("update")) {
 			productFromRepository.get().setDescription(updateProductRequest.getDescription());
 		}
+		log.info("NERDE KALDIK ::: Updateproduct.getCategory().toString() = " + Updateproduct.getCategory().toString());
+		if (Updateproduct.getCategory().toString().equalsIgnoreCase("1,update,update")) {// test etmedim
+			productFromRepository.get().setDescription(updateProductRequest.getDescription());
+
+		}
 		productResponse.setDone(false);
 		String errorMassage = "";
 
 		if (errorMassage.isEmpty())// veri tekrarı hatası
-			errorMassage = repeatErrorCheck(productFromRepository.get());
+
+			errorMassage = Updateproduct.getCategory().toString(); // repeatErrorCheck(productFromRepository.get());
 
 		if (!errorMassage.isEmpty()) {
 			productResponse.setErrorMassage(errorMassage);
@@ -219,6 +241,24 @@ public class ProductManager implements ProductService {
 				errorMassage += "Fiyat bilgisi boş bırakılamaz \n";
 			}
 		}
+
+		if (settings.getCategoryEmptyErrorCheck()) {
+			log.info("bakalım nasıl yazıyor: " + product.getCategory().toString());
+			if (product.getCategory() != null) {
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+				System.out.println("bakalım nasıl yazıyor: " + product.getCategory().toString());
+				if (product.getCategory().toString().isBlank() || product.getCategory().toString().isEmpty()
+						|| product.getCategory().toString().equalsIgnoreCase("null")) {
+					errorMassage += "Kategori bilgisi boş bırakılamaz \n";
+				}
+			} else {
+				errorMassage += "Kategori bilgisi boş bırakılamaz \n";
+			}
+		}
+		log.debug("Bak bu debug :" + errorMassage);
+		log.info("Bak bu info :" + errorMassage);
+		log.warn("Bak bu warn :" + errorMassage);
+		log.trace("Bak bu trace: " + errorMassage);
 		return errorMassage;
 	}
 
@@ -258,6 +298,16 @@ public class ProductManager implements ProductService {
 				}
 			}
 		}
+
+		if (settings.getCategoryEmptyErrorCheck()) {
+			if (product.getCategory() != null) {
+				if (!product.getCategory().toString().isBlank() && !product.getCategory().toString().isEmpty()
+						&& !product.getCategory().toString().equalsIgnoreCase("null")) {
+					product.setCategory(new Categories(1, "update", update));
+				}
+			}
+		}
+
 		return product;
 	}
 }
