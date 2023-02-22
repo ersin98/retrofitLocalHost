@@ -105,6 +105,7 @@ public class ProductManager implements ProductService {
 		for (Products product : products) {
 			GetByQueryProductResponse byQueryProductResponse = new GetByQueryProductResponse();
 			BeanUtils.copyProperties(product, byQueryProductResponse);
+			byQueryProductResponse.setCategoryID(product.getCategory().getId());
 			byQueryProductResponses.add(byQueryProductResponse);
 		}
 		return byQueryProductResponses;
