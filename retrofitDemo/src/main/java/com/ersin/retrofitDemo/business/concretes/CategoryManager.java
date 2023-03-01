@@ -16,16 +16,13 @@ import com.ersin.retrofitDemo.business.responses.category.GetAllCategoryResponse
 import com.ersin.retrofitDemo.dataAccess.abstracts.CategoryRepository;
 import com.ersin.retrofitDemo.entities.concretes.Categories;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class CategoryManager implements CategoryService {
 	private CategoryRepository categoryRepository;
 	private Settings settings;
-
-	public CategoryManager(CategoryRepository categoryRepository, Settings settings) {
-		super();
-		this.categoryRepository = categoryRepository;
-		this.settings = settings;
-	}
 
 	@Override
 	public List<GetAllCategoryResponse> getAll() {

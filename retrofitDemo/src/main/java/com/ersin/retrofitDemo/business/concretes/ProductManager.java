@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ersin.retrofitDemo.business.abstracts.ProductService;
@@ -21,23 +20,16 @@ import com.ersin.retrofitDemo.dataAccess.abstracts.ProductRepository;
 import com.ersin.retrofitDemo.entities.concretes.Categories;
 import com.ersin.retrofitDemo.entities.concretes.Products;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+@AllArgsConstructor
 public class ProductManager implements ProductService {
 	private ProductRepository productRepository;
 	private CategoryRepository categoryRepository;
 	private Settings settings;// emptyErrorCheckItem içerisindeki kategori için update yazan bir product
-
-	@Autowired
-	public ProductManager(ProductRepository productRepository, CategoryRepository categoryRepository,
-			Settings settings) {
-		super();
-		this.productRepository = productRepository;
-		this.settings = settings;
-		this.categoryRepository = categoryRepository;
-	}
 
 	@Override
 	public List<GetAllProductResponse> getAll() {
