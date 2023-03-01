@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.ersin.retrofitDemo.entities.concretes.Categories;
 import com.ersin.retrofitDemo.entities.concretes.Products;
 
 public interface ProductRepository extends JpaRepository<Products, Integer> {
@@ -22,4 +23,6 @@ public interface ProductRepository extends JpaRepository<Products, Integer> {
 	Optional<Products> findByDescriptionAndIdNot(String description, Integer id);
 
 	Optional<Products> findByImageAndIdNot(String string, Integer id);
+
+	Optional<List<Products>> findByCategory(Categories category);
 }
