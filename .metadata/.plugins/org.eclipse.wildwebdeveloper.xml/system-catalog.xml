@@ -89,7 +89,7 @@
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/javaee_6.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_6.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/javaee_7.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_7.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/javaee_8.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_8.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/jakartaee_9.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/jakartaee_9.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/jakartaee_9.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/jakartaee_9.xsd"/>
 <uri name="http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/j2ee_jaxrpc_mapping_1_1.xsd"/>
 <uri name="http://java.sun.com/xml/ns/j2ee/j2ee_jaxrpc_mapping_1_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/j2ee_jaxrpc_mapping_1_1.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/j2ee/j2ee_jaxrpc_mapping_1_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/j2ee_jaxrpc_mapping_1_1.xsd"/>
@@ -101,7 +101,7 @@
 <uri name="http://java.sun.com/xml/ns/javaee/javaee_web_services_1_3.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_web_services_1_3.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/javaee_web_services_1_3.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_web_services_1_3.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/javaee_web_services_1_4.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_web_services_1_4.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/jakartaee_web_services_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/jakartaee_web_services_2_0.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/jakartaee_web_services_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/jakartaee_web_services_2_0.xsd"/>
 <uri name="http://www.ibm.com/webservices/xsd/j2ee_web_services_client_1_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/j2ee_web_services_client_1_1.xsd"/>
 <uri name="http://java.sun.com/xml/ns/j2ee/j2ee_web_services_client_1_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/j2ee_web_services_client_1_1.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/j2ee/j2ee_web_services_client_1_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/j2ee_web_services_client_1_1.xsd"/>
@@ -110,7 +110,7 @@
 <uri name="http://java.sun.com/xml/ns/javaee/javaee_web_services_client_1_3.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_web_services_client_1_3.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/javaee_web_services_client_1_3.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_web_services_client_1_3.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/javaee_web_services_client_1_4.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/javaee_web_services_client_1_4.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/jakartaee_web_services_client_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/jakartaee_web_services_client_2_0.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/jakartaee_web_services_client_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/jakartaee_web_services_client_2_0.xsd"/>
 <uri name="http://java.sun.com/xml/ns/j2ee/jsp_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/jsp_2_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/j2ee/jsp_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/jsp_2_0.xsd"/>
 <uri name="http://java.sun.com/xml/ns/javaee/jsp_2_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/jsp_2_1.xsd"/>
@@ -118,7 +118,7 @@
 <uri name="http://java.sun.com/xml/ns/javaee/jsp_2_2.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/jsp_2_2.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/jsp_2_2.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/jsp_2_2.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/jsp_2_3.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/jsp_2_3.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/jsp_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/jsp_3_0.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/jsp_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/jsp_3_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/permissions_7.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/permissions_7.xsd"/>
 <uri name="https://jakarta.ee/xml/ns/jakartaee/permissions_9.xsd" uri="https://jakarta.ee/xml/ns/jakartaee/permissions_9.xsd"/>
 <uri name="http://java.sun.com/xml/ns/persistence/orm_1_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/orm_1_0.xsd"/>
@@ -153,12 +153,12 @@
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-app_3_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-app_3_1.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-app_4_0.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/web-app_5_0.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/web-app_5_0.xsd"/>
 <uri name="http://java.sun.com/xml/ns/javaee/web-common_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-common_3_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-common_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-common_3_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-common_3_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-common_3_1.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-common_4_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-common_4_0.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/web-common_5_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/web-common_5_0.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/web-common_5_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/web-common_5_0.xsd"/>
 <public publicId="-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/facelet-taglib_1_0.dtd"/>
 <uri name="http://java.sun.com/xml/ns/javaee/web-facelettaglibrary_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-facelettaglibrary_2_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-facelettaglibrary_2_0.xsd"/>
@@ -181,25 +181,18 @@
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-fragment_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-fragment_3_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-fragment_3_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-fragment_3_1.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-fragment_4_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-fragment_4_0.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/web-fragment_5_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/web-fragment_5_0.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/web-fragment_5_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/web-fragment_5_0.xsd"/>
 <public publicId="-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-jsptaglibrary_1_1.dtd"/>
 <public publicId="-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-jsptaglibrary_1_2.dtd"/>
 <uri name="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-jsptaglibrary_2_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-jsptaglibrary_2_0.xsd"/>
 <uri name="http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-jsptaglibrary_2_1.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-jsptaglibrary_2_1.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-jsptaglibrary_2_1.xsd"/>
-<uri name="https://jakarta.ee/xml/ns/jakartaee/web-jsptaglibrary_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/21/0/.cp/jakarta/servlet/resources/web-jsptaglibrary_3_0.xsd"/>
+<uri name="https://jakarta.ee/xml/ns/jakartaee/web-jsptaglibrary_3_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/933/0/.cp/jakarta/servlet/resources/web-jsptaglibrary_3_0.xsd"/>
 <uri name="http://java.sun.com/xml/ns/javaee/web-partialresponse_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-partialresponse_2_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-partialresponse_2_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-partialresponse_2_0.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-partialresponse_2_2.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-partialresponse_2_2.xsd"/>
 <uri name="http://xmlns.jcp.org/xml/ns/javaee/web-partialresponse_2_3.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/540/0/.cp/dtdsAndSchemas/web-partialresponse_2_3.xsd"/>
-<system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/607/0/.cp/xsd/maven-v4_0_0.xsd"/>
-<system systemId="http://maven.apache.org/xsd/maven-4.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/607/0/.cp/xsd/maven-v4_0_0.xsd"/>
-<system systemId="http://maven.apache.org/xsd/settings-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/607/0/.cp/xsd/settings-v1_0_0.xsd"/>
-<system systemId="http://maven.apache.org/xsd/profiles-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/607/0/.cp/xsd/profiles-v1_0_0.xsd"/>
-<system systemId="http://maven.apache.org/xsd/archetype-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/607/0/.cp/xsd/archetype-1.0.0.xsd"/>
-<system systemId="http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/607/0/.cp/xsd/archetype-catalog-1.0.0.xsd"/>
-<system systemId="http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/607/0/.cp/xsd/archetype-descriptor-1.0.0.xsd"/>
 <public publicId="-//WAPFORUM//DTD WML 1.1//EN" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/817/0/.cp/dtds/wml11.dtd"/>
 <public publicId="-//W3C//DTD XHTML 1.0 Strict//EN" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/817/0/.cp/dtds/xhtml1-strict.dtd"/>
 <public publicId="-//W3C//DTD XHTML 1.0 Transitional//EN" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/817/0/.cp/dtds/xhtml1-transitional.dtd"/>
@@ -226,7 +219,14 @@
 <uri name="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/817/0/.cp/xsd/ws-securitypolicy-1.2.xsd"/>
 <uri name="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200802" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/817/0/.cp/xsd/ws-securitypolicy.xsd"/>
 <uri name="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/817/0/.cp/xsd/xmldsig-core-schema.xsd"/>
-<uri name="http://www.w3.org/2001/XMLSchema" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/869/0/.cp/cache/www.w3.org/2001/XMLSchema.xsd"/>
-<system systemId="http://www.w3.org/2001/xml.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/869/0/.cp/cache/www.w3.org/2001/xml.xsd"/>
+<uri name="http://www.w3.org/2001/XMLSchema" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1187/0/.cp/cache/www.w3.org/2001/XMLSchema.xsd"/>
+<system systemId="http://www.w3.org/2001/xml.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1187/0/.cp/cache/www.w3.org/2001/xml.xsd"/>
 <uri name="http://www.w3.org/2001/XInclude" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/851/0/.cp/xslt-schemas/xinclude.xsd"/>
+<system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1095/0/.cp/xsd/maven-v4_0_0.xsd"/>
+<system systemId="http://maven.apache.org/xsd/maven-4.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1095/0/.cp/xsd/maven-v4_0_0.xsd"/>
+<system systemId="http://maven.apache.org/xsd/settings-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1095/0/.cp/xsd/settings-v1_0_0.xsd"/>
+<system systemId="http://maven.apache.org/xsd/profiles-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1095/0/.cp/xsd/profiles-v1_0_0.xsd"/>
+<system systemId="http://maven.apache.org/xsd/archetype-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1095/0/.cp/xsd/archetype-1.0.0.xsd"/>
+<system systemId="http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1095/0/.cp/xsd/archetype-catalog-1.0.0.xsd"/>
+<system systemId="http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" uri="file:///D:/Program%20Files%20(x86)/eclipse/jee-2022-09/eclipse/configuration/org.eclipse.osgi/1095/0/.cp/xsd/archetype-descriptor-1.0.0.xsd"/>
 </catalog>
