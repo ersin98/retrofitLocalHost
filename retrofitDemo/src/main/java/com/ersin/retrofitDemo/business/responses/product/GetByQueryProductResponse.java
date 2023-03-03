@@ -13,5 +13,5 @@ public class GetByQueryProductResponse {
 	private Double price;
 	private String title;
 	int id;
-	private Integer categoryID;
+	private String categoryName;
 }

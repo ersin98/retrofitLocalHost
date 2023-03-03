@@ -1,5 +1,0 @@
-package com.ersin.retrofitDemo.business.requests.product;
-
-public class GetCategoryProductResponse {
-
-}

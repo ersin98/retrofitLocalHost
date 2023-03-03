@@ -17,6 +17,5 @@ public class RetrofitDemoApplication {
 	@Bean
 	public ModelMapper getModelMapper() {
 		return new ModelMapper();
-
 	}
 }

@@ -8,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import com.ersin.retrofitDemo.business.abstracts.CategoryService;
-import com.ersin.retrofitDemo.business.common.Settings;
 import com.ersin.retrofitDemo.business.requests.category.CreateCategoryRequest;
 import com.ersin.retrofitDemo.business.requests.category.UpdateCategoryRequest;
 import com.ersin.retrofitDemo.business.responses.category.CategoryResponse;
@@ -18,6 +17,7 @@ import com.ersin.retrofitDemo.entities.concretes.Categories;
 
 import lombok.AllArgsConstructor;
 
+//Category bölümünü güncellemedim
 @Service
 @AllArgsConstructor
 public class CategoryManager implements CategoryService {
