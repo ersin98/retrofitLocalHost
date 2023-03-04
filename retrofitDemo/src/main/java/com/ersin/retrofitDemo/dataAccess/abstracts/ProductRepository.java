@@ -9,6 +9,7 @@ import com.ersin.retrofitDemo.entities.concretes.Categories;
 import com.ersin.retrofitDemo.entities.concretes.Products;
 
 public interface ProductRepository extends JpaRepository<Products, Integer> {
+//kullanmazsam ayıklamam gerekenler var
 
 	Optional<List<Products>> findByTitleContaining(String Query);
 	// Optional<List<Product>> findByTitleLike(String Query);
@@ -25,4 +26,8 @@ public interface ProductRepository extends JpaRepository<Products, Integer> {
 	Optional<Products> findByImageAndIdNot(String string, Integer id);
 
 	Optional<List<Products>> findByCategory(Categories category);
+
+	boolean existsByTitle(String name);
+
+	boolean existsByImage(String name);
 }

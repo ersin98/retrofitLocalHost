@@ -1,0 +1,5 @@
+package com.ersin.retrofitDemo.business.core.utilities.exceptions;
+
+public class ProblemDetails {
+
+}
