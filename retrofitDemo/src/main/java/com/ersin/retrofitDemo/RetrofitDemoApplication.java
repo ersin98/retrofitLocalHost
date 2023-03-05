@@ -11,12 +11,14 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.ersin.retrofitDemo.business.core.utilities.exceptions.BusinessException;
 import com.ersin.retrofitDemo.business.core.utilities.exceptions.ProblemDetails;
 import com.ersin.retrofitDemo.business.core.utilities.exceptions.ValidationProblemDetails;
 
 @SpringBootApplication
+@RestControllerAdvice // @ExceptionHandler anotasyonunun çalışması için bu anotasyon gerekli
 public class RetrofitDemoApplication {
 //lombok kurulacak,doğru spring eklemeleri kullnaılacak,pgadmin kurulacak,application.properties yazılacak
 	// etitie kısmındaki import lar persistence üzerinden olacak
@@ -29,6 +31,7 @@ public class RetrofitDemoApplication {
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	public ProblemDetails handleBusinessException(BusinessException businessException) {
 		ProblemDetails problemDetails = new ProblemDetails();
+
 		problemDetails.setMessage(businessException.getMessage());
 		return problemDetails;
 

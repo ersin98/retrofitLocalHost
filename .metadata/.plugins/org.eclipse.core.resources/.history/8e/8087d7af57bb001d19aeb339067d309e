@@ -1,0 +1,7 @@
+package com.ersin.retrofitDemo.business.rules;
+
+public class CategoryRules {
+	public void checkifCategoryNameExists(String name) {
+
+	}
+}

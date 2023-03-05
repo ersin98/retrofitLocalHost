@@ -10,23 +10,24 @@ import com.ersin.retrofitDemo.business.core.utilities.mappers.ModelMapperService
 import com.ersin.retrofitDemo.business.requests.category.CreateCategoryRequest;
 import com.ersin.retrofitDemo.business.requests.category.UpdateCategoryRequest;
 import com.ersin.retrofitDemo.business.responses.category.GetAllCategoryResponse;
+import com.ersin.retrofitDemo.business.rules.CategoryRules;
 import com.ersin.retrofitDemo.dataAccess.abstracts.CategoryRepository;
-import com.ersin.retrofitDemo.entities.concretes.Categories;
+import com.ersin.retrofitDemo.entities.concretes.Category;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
+//@Slf4j
 @Service
 @AllArgsConstructor
-@Slf4j
 public class CategoryManager implements CategoryService {
 	private CategoryRepository categoryRepository;
 	private ModelMapperService mapperService;
+	private CategoryRules categoryRules;
 
 	@Override
 	public List<GetAllCategoryResponse> getAll() {
 		// burada findAll dan GetAll içine aktarma yapıyoruz
-		List<Categories> categories = this.categoryRepository.findAll();
+		List<Category> categories = this.categoryRepository.findAll();
 		List<GetAllCategoryResponse> categoryResponse = categories.stream()
 				.map(category -> this.mapperService.forResponse().map(category, GetAllCategoryResponse.class))
 				.collect(Collectors.toList());
@@ -35,13 +36,14 @@ public class CategoryManager implements CategoryService {
 
 	@Override
 	public void addCategory(CreateCategoryRequest createcategoryRequest) {
-		Categories category = this.mapperService.forRequest().map(createcategoryRequest, Categories.class);
+		this.categoryRules.checkifCategoryNameExists(createcategoryRequest.getName());
+		Category category = this.mapperService.forRequest().map(createcategoryRequest, Category.class);
 		this.categoryRepository.save(category);
 	}
 
 	@Override
 	public void deleteCategory(int id) { // Otomatik silmek yerine kullanıcıya product var hatası vermeli
-		Categories category = this.categoryRepository.findById(id).orElseThrow();
+		Category category = this.categoryRepository.findById(id).orElseThrow();
 		this.categoryRepository.delete(category);
 	}
 
@@ -53,7 +55,7 @@ public class CategoryManager implements CategoryService {
 	@Override
 	public void updateCategoryRequest(UpdateCategoryRequest updateCategoryRequest) {
 		this.categoryRepository.findById(updateCategoryRequest.getId()).orElseThrow();
-		Categories categoryRequest = this.mapperService.forRequest().map(updateCategoryRequest, Categories.class);
+		Category categoryRequest = this.mapperService.forRequest().map(updateCategoryRequest, Category.class);
 		this.categoryRepository.save(categoryRequest);
 	}
 }

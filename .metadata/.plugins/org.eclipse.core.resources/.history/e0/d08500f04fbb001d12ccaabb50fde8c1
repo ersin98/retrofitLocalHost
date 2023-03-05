@@ -1,0 +1,6 @@
+package com.ersin.retrofitDemo.business.core.utilities.exceptions;
+
+public class ProblemDetails {
+	// özel hataları dene
+	String message;
+}

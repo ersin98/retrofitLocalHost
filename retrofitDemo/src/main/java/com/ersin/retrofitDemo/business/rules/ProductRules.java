@@ -18,9 +18,9 @@ public class ProductRules {
 		}
 	}
 
-	public void checkIfProductImageExists(String name) {
-		if (this.productRepository.existsByTitle(name)) {
-			throw new BusinessException("Title already exists");
+	public void checkIfProductImageExists(String image) {
+		if (this.productRepository.existsByImage(image)) {
+			throw new BusinessException("Image already exists");
 		}
 	}
 }

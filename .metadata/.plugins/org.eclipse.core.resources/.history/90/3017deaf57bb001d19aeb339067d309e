@@ -1,0 +1,13 @@
+package com.ersin.retrofitDemo.business.rules;
+
+import com.ersin.retrofitDemo.dataAccess.abstracts.CategoryRepository;
+
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+public class CategoryRules {
+	private CategoryRepository categoryRepository;
+	public void checkifCategoryNameExists(String name) {
+
+	}
+}
