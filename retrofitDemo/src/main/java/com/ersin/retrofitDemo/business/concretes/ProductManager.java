@@ -41,7 +41,7 @@ public class ProductManager implements ProductService {
 	@Override
 	public void addProduct(CreateProductRequest createProductRequest) {
 		Product product = mapperService.forRequest().map(createProductRequest, Product.class);
-		Category category = categoryRepository.findById(createProductRequest.getCategoryID()).orElseThrow();
+		Category category = categoryRepository.findById(createProductRequest.getCategoryId()).orElseThrow();
 		product.setCategory(category);
 		productRules.checkIfProductTitleExists(product.getTitle());
 		productRules.checkIfProductImageExists(product.getImage());

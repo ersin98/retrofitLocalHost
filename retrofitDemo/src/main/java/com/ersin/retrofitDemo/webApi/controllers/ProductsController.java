@@ -40,8 +40,8 @@ public class ProductsController {
 		return productService.getByTitle(title);
 	}
 
-	@GetMapping("/{id}")
-	List<GetByCategoryProductResponse> getByCategoryProductResponse(Integer id) {
+	@GetMapping("/category/{categoryId}")
+	List<GetByCategoryProductResponse> getByCategoryProductResponse(int id) {
 		return productService.getByCategory(id);
 	}
 
