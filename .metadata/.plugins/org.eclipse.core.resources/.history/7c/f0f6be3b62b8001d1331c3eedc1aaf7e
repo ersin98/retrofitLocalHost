@@ -1,5 +1,0 @@
-package com.ersin.retrofitDemo.business.core.utilities.mappers;
-
-public class ModelMapperManager {
-
-}

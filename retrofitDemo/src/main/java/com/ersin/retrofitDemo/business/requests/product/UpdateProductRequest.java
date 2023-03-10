@@ -1,6 +1,5 @@
 package com.ersin.retrofitDemo.business.requests.product;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -12,15 +11,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateProductRequest {
+	@NotNull
 	private String description;
 	@NotNull
-	@NotBlank
 	private int id;
+	@NotNull
 	private String image;
+	@NotNull
 	private Double price;
 	@NotNull
-	@NotBlank
 	@Size(min = 4, max = 20)
 	private String title;
-	private Integer categoryID;
+	@NotNull
+	private int categoryID;
 }

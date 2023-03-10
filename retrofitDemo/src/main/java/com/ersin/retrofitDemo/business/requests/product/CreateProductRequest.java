@@ -21,6 +21,6 @@ public class CreateProductRequest {
 	@Size(min = 4, max = 20)
 	private String title;
 	@NotNull
-	private Integer categoryId;
+	private int categoryId;
 	// @NotBlank @NotEmpty
 }

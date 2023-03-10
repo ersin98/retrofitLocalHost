@@ -60,8 +60,7 @@ public class ProductManager implements ProductService {
 
 	@Override
 	public void deleteProduct(int id) {
-		Product product = productRepository.findById(id).orElseThrow();
-		productRepository.delete(product);
+		productRepository.deleteById(id);
 	}
 
 	@Override

@@ -1,5 +1,0 @@
-package com.ersin.retrofitDemo.business.mappers;
-
-public class ProductMapperManager {
-
-}
