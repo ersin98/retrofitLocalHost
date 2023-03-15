@@ -1,0 +1,5 @@
+package com.ersin.retrofitDemo.business.rules;
+
+public class ProductRules {
+
+}

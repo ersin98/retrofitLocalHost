@@ -1,0 +1,11 @@
+package com.ersin.retrofitDemo.business.core.utilities.exceptions;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProblemDetails {
+	// özel hataları dene
+	String message;
+}

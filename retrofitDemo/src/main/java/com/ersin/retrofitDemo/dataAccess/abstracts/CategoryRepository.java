@@ -1,12 +1,10 @@
 package com.ersin.retrofitDemo.dataAccess.abstracts;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.ersin.retrofitDemo.entities.concretes.Categories;
+import com.ersin.retrofitDemo.entities.concretes.Category;
 
-public interface CategoryRepository extends JpaRepository<Categories, Integer> {
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
-	Optional<Categories> findByNameAndIdNot(String string, Integer id);
+	boolean existsByName(String name);
 }

@@ -1,7 +1,0 @@
-package com.ersin.retrofitDemo.business.core.utilities.mappers;
-
-public interface ModelMapperService {
-	ModelMapper forResponse();
-
-	ModelMapper forRequest();
-}
