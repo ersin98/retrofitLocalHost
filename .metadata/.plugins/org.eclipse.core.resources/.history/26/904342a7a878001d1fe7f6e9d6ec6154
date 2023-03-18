@@ -1,7 +1,0 @@
-package com.ersin.retrofitDemo.business.abstracts;
-
-import com.ersin.retrofitDemo.business.requests.imageRequests.CreateImageRequest;
-
-public interface ImageService {
-	void addImageRequest(CreateImageRequest createImageRequest);// MultipartFile file
-}

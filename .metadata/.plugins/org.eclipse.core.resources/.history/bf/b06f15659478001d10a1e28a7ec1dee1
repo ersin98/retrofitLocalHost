@@ -1,5 +1,0 @@
-package com.ersin.retrofitDemo.business.abstracts;
-
-public interface ImageService {
-	String 
-}

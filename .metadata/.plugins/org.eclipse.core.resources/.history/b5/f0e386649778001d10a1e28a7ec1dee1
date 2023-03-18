@@ -1,5 +1,0 @@
-package com.ersin.retrofitDemo.webApi.controllers;
-
-public interface ImageController {
-
-}
